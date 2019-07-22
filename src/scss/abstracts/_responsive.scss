@@ -1,0 +1,82 @@
+////
+/// File with Responsive group mixins
+/// @group Responsive
+////
+
+/// Set property value for different breakpoints
+///
+/// @author Matheus Bordin (miss u </3)
+///
+/// @param {string} $property - CSS property to set
+/// @param {map} $value - Map with property values
+/// @param {boolean} $important [false] - Set `!important` to property value
+/// @example scss - Set properties to a map with breakpoints
+///     .foo {
+///       @include propertyBy(
+///         font-size,
+///         (
+///           default: 10px,
+///           sm: 12px,
+///           md: 14px
+///         )
+///       );
+///     }
+
+@mixin propertyBy($property, $value, $important: false) {
+  @if type-of($value: $value) == map {
+    @each $device-name, $device-value in $value {
+      @include mediaTo($device-name) {
+        @include propertyBy($property, $device-value, $important);
+      }
+    }
+  } @else {
+    @if $important {
+      #{$property}: #{$value} !important;
+    } @else {
+      #{$property}: $value;
+    }
+  }
+}
+
+/// Generate media query to a specific `$device-name`
+///
+/// @author Matheus Bordin (miss u </3)
+///
+/// @param {String} $device-name - key of a device name inserted in `$breakpoints` variable
+/// @param {Number} $limit-device [null] - `max-width` of media query
+/// @output Specific `@media` to $device-name
+/// @example scss - Set properties just to `md` device
+///     @include mediaTo('md') {
+///         font-size: 25px;
+///     }
+@mixin mediaTo($device-name, $limit-device: null) {
+  @if $limit-device == null {
+    @if $device-name == "default" {
+      @content;
+    } @else {
+      @media only screen and (min-width: map-get($map: $breakpoints, $key: $device-name)) {
+        @content;
+      }
+    }
+  } @else {
+    $limit-value: map-get(
+      $map: $breakpoints,
+      $key: $limit-device
+    );
+
+    @if $device-name == "default" {
+      @media only screen and (max-width: $limit-value - 1) {
+        @content;
+      }
+    } @else {
+      $base-value: map-get(
+        $map: $breakpoints,
+        $key: $device-name
+      );
+
+      @media only screen and (min-width: $base-value) and (max-width: $limit-value - 1) {
+        @content;
+      }
+    }
+  }
+}

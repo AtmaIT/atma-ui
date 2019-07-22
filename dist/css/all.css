@@ -1,0 +1,96 @@
+.btn {
+  display: inline-block;
+  height: 50px;
+  padding: 0 15px;
+  transition: box-shadow 0.3s, background 0.5s;
+  border: none;
+  border-radius: 3px;
+  background-position: center;
+  color: inherit;
+  font-size: 0.8rem;
+  font-weight: normal;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  width: 100%; }
+  @media only screen and (min-width: 769px) {
+    .btn {
+      width: auto; } }
+  .btn.btn--primary {
+    background: #ab2b69;
+    color: #ffffff;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2); }
+    .btn.btn--primary:hover {
+      box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.35); }
+    .btn.btn--primary:active {
+      transition: none;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2); }
+    .btn.btn--primary.btn--ripple {
+      transition: background 0.5s, all 0.5s; }
+      .btn.btn--primary.btn--ripple:hover {
+        background: #bf3076 radial-gradient(circle, transparent 1%, #bf3076 1%) center/15000%; }
+      .btn.btn--primary.btn--ripple:active {
+        transition: background 0s;
+        background-color: #d8649c;
+        background-size: 100%; }
+  .btn.btn--secondary {
+    background: #140e27;
+    color: #ffffff;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2); }
+    .btn.btn--secondary:hover {
+      box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.35); }
+    .btn.btn--secondary:active {
+      transition: none;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2); }
+    .btn.btn--secondary.btn--ripple {
+      transition: background 0.5s, all 0.5s; }
+      .btn.btn--secondary.btn--ripple:hover {
+        background: #1e153a radial-gradient(circle, transparent 1%, #1e153a 1%) center/15000%; }
+      .btn.btn--secondary.btn--ripple:active {
+        transition: background 0s;
+        background-color: #3a2972;
+        background-size: 100%; }
+  .btn.btn--flat {
+    background: transparent;
+    color: #ab2b69; }
+    @media only screen and (min-width: 769px) {
+      .btn.btn--flat:hover {
+        background: #e7a1c3; } }
+    .btn.btn--flat.btn--ripple {
+      transition: background 0.5s, all 0.5s; }
+      .btn.btn--flat.btn--ripple:hover {
+        background: #e7a1c3 radial-gradient(circle, transparent 1%, #e7a1c3 1%) center/15000%; }
+      .btn.btn--flat.btn--ripple:active {
+        transition: background 0s;
+        background-color: #f7deea;
+        background-size: 100%; }
+  .btn.btn--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background: transparent; }
+    .btn.btn--icon:hover {
+      background: #cccccc; }
+    .btn.btn--icon.btn--ripple {
+      transition: background 0.5s, all 0.5s; }
+      .btn.btn--icon.btn--ripple:hover {
+        background: #e6e6e6 radial-gradient(circle, transparent 1%, #e6e6e6 1%) center/15000%; }
+      .btn.btn--icon.btn--ripple:active {
+        transition: background 0s;
+        background-color: white;
+        background-size: 100%; }
+
+:root {
+  --test: red; }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  color: var(--test); }
+
+/*# sourceMappingURL=all.css.map */

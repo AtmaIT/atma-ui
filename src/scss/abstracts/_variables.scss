@@ -1,0 +1,39 @@
+﻿////
+///  Global variables
+/// @author Lucca Delmano
+////
+
+/// Breakpoints to responsivity
+///
+/// @group Responsive
+///
+/// @type {map}
+/// @prop {number} [$deviceName] - value of media query `min-width` to specific deviceName (you can choose these names, but you must use them in your SCSS code)
+$breakpoints: (
+  sm: 414px,
+  md: 769px,
+  lg: 1200px
+) !default;
+
+///
+/// Grid mixin box sizing
+///
+/// @group Grid
+/// @type {string} [border-box]
+$grid-mixins-box-sizing: border-box !default;
+
+///
+/// Sample Grid Options
+///
+/// @group Grid
+$sample-grid-columns: 12 !default;
+$sample-grid-gutter: null !default;
+// $sample-grid-devices: getAllFromMap($breakpoints, "key"); - this var is in the _sample-grid.scss mixin because it needs a value returned from a function
+
+///
+/// Font Awesome version (`font-family` property)
+///
+/// @group Utils
+///
+/// @type {string} ["Font Awesome 5 Free"] - installed version of Font Awesome
+$fa-font-family: "Font Awesome 5 Free" !default;

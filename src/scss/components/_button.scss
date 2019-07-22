@@ -1,0 +1,100 @@
+.btn {
+  display: inline-block;
+  height: 50px;
+  padding: 0 15px;
+  transition: box-shadow 0.3s, background 0.5s;
+  border: none;
+  border-radius: 3px;
+  background-position: center;
+  color: inherit;
+  font-size: 0.8rem;
+  font-weight: normal;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+
+  @include propertyBy(
+    width,
+    (
+      default: 100%,
+      md: auto
+    )
+  );
+
+  &.btn--primary {
+    background: #ab2b69;
+    color: #ffffff;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    &:active {
+      transition: none;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &.btn--ripple {
+      @include rippleEffect(#ab2b69, 0.5s);
+    }
+  }
+
+  &.btn--secondary {
+    background: #140e27;
+    color: #ffffff;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    &:active {
+      transition: none;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &.btn--ripple {
+      @include rippleEffect(#140e27, 0.5s);
+    }
+  }
+
+  &.btn--flat {
+    background: transparent;
+    color: #ab2b69;
+
+    &:hover {
+      @include propertyBy(
+        background,
+        (
+          md: lighten(#ab2b69, 35)
+        )
+      );
+    }
+
+    &.btn--ripple {
+      @include rippleEffect(lighten(#ab2b69, 30), 0.5s);
+    }
+  }
+
+  &.btn--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    &:hover {
+      background: #cccccc;
+    }
+
+    &.btn--ripple {
+      @include rippleEffect(lighten(#cccccc, 5), 0.5s);
+    }
+  }
+}
