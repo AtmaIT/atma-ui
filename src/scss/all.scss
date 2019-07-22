@@ -1,8 +1,3 @@
-@import "abstracts/variables";
-@import "abstracts/responsive";
-@import "abstracts/ripple-effect";
+@import "abstracts/*";
 
-@import "components/button";
-@import "components/card";
-
-@import "test/gh";
+@import "components/_*.scss";

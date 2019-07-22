@@ -21,6 +21,7 @@ browserSync.create();
 gulp.task("scss:compile", () => {
   return gulp
     .src(config.paths.src.scss + srcPath)
+    .pipe($.sassGlob())
     .pipe($.sourcemaps.init({ loadMaps: true }))
     .pipe($.sass())
     .pipe($.sourcemaps.write("."))
